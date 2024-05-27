@@ -1,0 +1,73 @@
+{% load static %}
+<html>
+    <head>
+        <title>Travel Website</title>
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                overflow: hidden;
+                font-family: Arial, sans-serif;
+            }
+    
+            .video-background {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%; 
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                z-index: -1;
+            }
+    
+            .content {
+                position: relative;
+                z-index: 1;
+                color: rgb(10, 6, 6);
+                text-align: center;
+                padding: 20px;
+                margin-top: 270px;
+            }
+
+            .content h2 {
+                font-size: 30px;
+            }
+
+            .content h1 {
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
+
+            .content button {
+                font-size: 20px;
+                border-radius: 5px;
+                padding: 5 7 5 7px;
+                background-color: #39766a;
+            }
+
+            .content button:hover {
+                background-color: #33645a;
+            }
+        </style>
+    </head>
+    <body>
+        <video autoplay muted loop class="video-background">
+            <source src="{% static 'images/bg.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        {% include 'navbar.html' %}
+        <div class="content">
+            <h2>Discover Your favourite places among India with</h2>
+            <h1>Travel Trails</h1>
+
+            <button onclick="createAccount()">Create an account</button>
+        </div>
+        <script>
+            function createAccount() {
+                window.location.href = '/signup';
+            }
+        </script>
+    </body>
+</html>
